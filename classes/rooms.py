@@ -1,12 +1,16 @@
-from tokenize import Number
+from classes.guests import Guests
+from classes.bar import Bar
 
 
 class Rooms:
-    def __init__(self, number, capacity):
+    def __init__(self, number, capacity, song_availabe, fee):
         self.number = number
         self.capacity = capacity
+        self.song_available = song_availabe
+        self.fee = fee
         self.guests = []
         self.songs = []
+        self.till = []
 
     def guest_count(self):
          return len(self.guests)
@@ -28,4 +32,14 @@ class Rooms:
             return "This room is full"
         else:    
             return "You can enter"
-        
+
+    def favourite_song(self, song):
+        if song == self.song_available:
+            return "Whoooooooo!!!"    
+        else:
+            return "Oh no! I don't like this song!"
+
+    def entry_fee(self, till):
+        self.fee += till
+
+    
